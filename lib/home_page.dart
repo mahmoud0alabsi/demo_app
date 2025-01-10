@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             // Title
             Center(
               child: Text(
-                'Understanding GitFlow',
+                'What is the GitFlow?',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF003366),
@@ -38,6 +38,19 @@ class HomePage extends StatelessWidget {
               child: Image.network(
                 'https://leanpub.com/site_images/git-flow/git-workflow-release-cycle-4maintenance.png',
                 height: 200,
+                fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(child: CircularProgressIndicator());
+                },
+              ),
+            ),
+            SizedBox(height: 20),
+
+            Center(
+              child: Image.network(
+                'https://razorops.com/images/blog//git-work-flow.gif',
+                height: 300,
                 fit: BoxFit.cover,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) return child;
